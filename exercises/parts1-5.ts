@@ -3,6 +3,7 @@
 
 
 // Part 1: Declare (5) Variables With Type
+import { SpaceLocation } from './SpaceLocation';
 
 let spacecraftName: string = "Determination";
 let speedMph: number = 17500;
@@ -52,10 +53,14 @@ class Spacecraft {
         return days
     }
 
+    printDaysToLocation(location: SpaceLocation) {
+        console.log(`${this.name} would take ${this.getDaysToLocation(location.kilometersAway)} days to get to ${location.name}.`);
+     }
+
 }
 
-let Enterprise = new Spacecraft("Enterprise", 100000)
-console.log(Enterprise.getDaysToLocation(kmMars))
+let enterprise = new Spacecraft("Enterprise", 100000)
+console.log(enterprise.printDaysToLocation(new SpaceLocation("Mars", kmMars)))
 
 
 // Create an instance of the class here:

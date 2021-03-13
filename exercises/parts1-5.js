@@ -1,6 +1,9 @@
+"use strict";
 // URL for the instructions: 
 // https://education.launchcode.org/intro-to-professional-web-dev/chapters/typescript/exercises.html 
+exports.__esModule = true;
 // Part 1: Declare (5) Variables With Type
+var SpaceLocation_1 = require("./SpaceLocation");
 var spacecraftName = "Determination";
 var speedMph = 17500;
 var kmMars = 225000000;
@@ -27,10 +30,13 @@ var Spacecraft = /** @class */ (function () {
         days = ((kmAway * this.milesPerKm) / this.speedMph) / 24;
         return days;
     };
+    Spacecraft.prototype.printDaysToLocation = function (location) {
+        console.log(this.name + " would take " + this.getDaysToLocation(location.kilometersAway) + " days to get to " + location.name + ".");
+    };
     return Spacecraft;
 }());
-var Enterprise = new Spacecraft("Enterprise", 100000);
-console.log(Enterprise.getDaysToLocation(kmMars));
+var enterprise = new Spacecraft("Enterprise", 100000);
+console.log(enterprise.printDaysToLocation(new SpaceLocation_1.SpaceLocation("Mars", kmMars)));
 // Create an instance of the class here:
 // Move your output statements from part 3 here. Update the template literals use the
 // instance of the class.

@@ -12,8 +12,8 @@ let milesPerKm: number = 0.621;
 
 let milesMars: number = kmMars * milesPerKm;
 
-console.log(milesMars);
-
+// console.log(milesMars);
+// console.log((milesMars/speedMph)/24)
 
 // Part 2: Print Days to Mars
 
@@ -25,7 +25,13 @@ console.log(milesMars);
 
 // Part 3: Create a Function ("getDaysToLocation")
 
+function getDaysToLocation(kmAway: number): number {
+    let days: number = 0
+    days = ((kmAway * milesPerKm) / speedMph)/24
+    return days
+}
 
+// console.log(getDaysToLocation(kmMars))
 
 // Move your output statement from part 2 here. Update the template literal to call
 // the function and print the outputs for a Mars trip and a moon trip.

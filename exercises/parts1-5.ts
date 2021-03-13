@@ -25,11 +25,7 @@ let milesMars: number = kmMars * milesPerKm;
 
 // Part 3: Create a Function ("getDaysToLocation")
 
-function getDaysToLocation(kmAway: number): number {
-    let days: number = 0
-    days = ((kmAway * milesPerKm) / speedMph)/24
-    return days
-}
+
 
 // console.log(getDaysToLocation(kmMars))
 
@@ -41,7 +37,25 @@ function getDaysToLocation(kmAway: number): number {
 
 // Part 4: Create a Spacecraft Class
 
+class Spacecraft {
+    name: string;
+    milesPerKm: number = 0.621; 
+    speedMph: number;
+    constructor(name: string, speedMph: number){
+        this.name = name;
+        this.speedMph = speedMph
+    }
 
+    getDaysToLocation(kmAway: number): number {
+        let days: number = 0
+        days = ((kmAway * this.milesPerKm) / this.speedMph)/24
+        return days
+    }
+
+}
+
+let Enterprise = new Spacecraft("Enterprise", 100000)
+console.log(Enterprise.getDaysToLocation(kmMars))
 
 
 // Create an instance of the class here:

@@ -12,15 +12,25 @@ var milesMars = kmMars * milesPerKm;
 // Part 2: Print Days to Mars
 // Code an output statement here (use a template literal):
 // Part 3: Create a Function ("getDaysToLocation")
-function getDaysToLocation(kmAway) {
-    var days = 0;
-    days = ((kmAway * milesPerKm) / speedMph) / 24;
-    return days;
-}
-console.log(getDaysToLocation(kmMars));
+// console.log(getDaysToLocation(kmMars))
 // Move your output statement from part 2 here. Update the template literal to call
 // the function and print the outputs for a Mars trip and a moon trip.
 // Part 4: Create a Spacecraft Class
+var Spacecraft = /** @class */ (function () {
+    function Spacecraft(name, speedMph) {
+        this.milesPerKm = 0.621;
+        this.name = name;
+        this.speedMph = speedMph;
+    }
+    Spacecraft.prototype.getDaysToLocation = function (kmAway) {
+        var days = 0;
+        days = ((kmAway * this.milesPerKm) / this.speedMph) / 24;
+        return days;
+    };
+    return Spacecraft;
+}());
+var Enterprise = new Spacecraft("Enterprise", 100000);
+console.log(Enterprise.getDaysToLocation(kmMars));
 // Create an instance of the class here:
 // Move your output statements from part 3 here. Update the template literals use the
 // instance of the class.
